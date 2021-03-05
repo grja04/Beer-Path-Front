@@ -6,43 +6,44 @@ import MediaCard from '../components/card';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: '2px 4px',
-    display: 'flex',
+  pageRoot: {
+    background:'red',
     },
-    input: {
-      marginLeft: theme.spacing(1),
-      flex: 1,
+    cardWrapper:{
+      background: 'green',
+      margin:'5% 5%',
+      padding: '2%',
+      justifyContent:'center'
     }}))
 
 function Home() {
   const classes = useStyles();
   return (
-    <>
-    <Grid item>
-      <h1>Esta es la pagina de home</h1>
-    </Grid>
-    <Grid item>
-      <SearchField/>
-    </Grid>
-    <Grid item>
-      <YellowButton text="Post" to='/post'/>
-    </Grid>
-    <Grid container>
+    <Grid container className={classes.pageRoot}>
       <Grid item>
-        <MediaCard/>
+       <h1>Esta es la pagina de home</h1>
       </Grid>
-      <Grid item>
-        <MediaCard/>
-      </Grid>
-      <Grid item>
-        <MediaCard/>
-      </Grid>
-      <Grid item>
-        <MediaCard/>
-      </Grid>
+     <Grid item>
+       <SearchField/>
+     </Grid>
+     <Grid item>
+       <YellowButton text="Post" to='/post'/>
+     </Grid>
+     <Grid container className={classes.cardWrapper}>
+       <Grid item>
+         <MediaCard/>
+       </Grid>
+       <Grid item>
+         <MediaCard/>
+       </Grid>
+       <Grid item>
+         <MediaCard/>
+       </Grid>
+       <Grid item>
+         <MediaCard/>
+       </Grid>
+     </Grid>
     </Grid>
-    </>
   );
 }
 
