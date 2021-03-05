@@ -1,24 +1,63 @@
-import logo from './logo.svg';
 import './App.css';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Home from './pages/home'
+import LogIn from './pages/logIn'
+import SignUp from './pages/signUp'
+import Profile from './pages/profile'
+import Post from './pages/post'
+import NavBar from './components/navbar'
+import BottomAppBar from './components/footer'
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    background:'red',
+    flexGrow:1,
+    textAlign: 'center',
+    width: '100%',
+    margin: 0,
+    padding: 0,
+  }
+}));
+
 
 function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid container className={classes.root}>
+      <Router>
+        <Grid item className={classes.root}>
+          <NavBar/>
+          <Link to='/profile'>profile</Link>
+          <Switch>
+            <Route path="/logIn">
+              <LogIn/>
+            </Route>
+            <Route path="/signUp">
+              <SignUp/>
+            </Route>
+            <Route path="/profile">
+              <Profile/>
+            </Route>
+            <Route path="/post">
+              <Post/>
+            </Route>
+            <Route exact path="/">
+              <Home/>
+            </Route>
+          </Switch>
+        </Grid>
+        <Grid item className={classes.root}>
+          <BottomAppBar/>
+        </Grid>
+      </Router>
+    </Grid>
   );
 }
 
