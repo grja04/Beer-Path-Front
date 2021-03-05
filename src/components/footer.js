@@ -25,13 +25,14 @@ const useStyles = makeStyles((theme) => ({
     padding: 16,
     textAlign:'center',
     color: 'white',
-    background: 'black',
-    width:'100%'
+    background: '#1d1d1d',
+    width:'100%',
+    boxShadow:'none'
   },
   appBar: {
     top: 'auto',
     bottom: 0,
-    background: 'black'
+    background: '#1d1d1d'
   },
   fabButton: {
     position: 'absolute',
@@ -45,26 +46,28 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Footer() {
+    const classes = useStyles();
     return (
-        <AppBar position="static" color="primary">
+        <AppBar position="static" color="primary" className={classes.appBar}>
           <Container maxWidth="md">
             <Toolbar>
-                <Grid item xs={12} sm={12}>
-                    <Paper>
-                        <h3>Contacto</h3>
-                        <p>Tel. 56-11-12-40-34</p>
-                        <p>Email: contacto@chelap.com</p>
-                        <p>Direccion: entu corazon <FavoriteIcon/></p>
+                <Grid container>
+                <Grid item xs={12} sm={4}>
+                    <Paper className={classes.paper}>
+                        <h3 className={classes.paragraph}>Contacto</h3>
+                        <p className={classes.paragraph}>Tel. 56-11-12-40-34</p>
+                        <p className={classes.paragraph}>Email: contacto@chelap.com</p>
+                        <p className={classes.paragraph}>Direccion: en tu corazon <FavoriteIcon/></p>
                     </Paper>
                 </Grid>
-                {/* {/* <Grid item xs={12} sm={12}>
-                    <Paper>
+                <Grid item xs={12} sm={4}>
+                    <Paper className={classes.paper}>
                         <p><Filter9PlusIcon/></p>
                         <p>Evita el exceso</p>
                     </Paper>
-                </Grid> */}
-                <Grid item xs={12} sm={12}>
-                    <Paper>
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                    <Paper className={classes.paper}>
                         <IconButton edge="end" color="inherit">
                             <FacebookIcon color="primary"/>
                         </IconButton>
@@ -75,6 +78,7 @@ export default function Footer() {
                             <TwitterIcon color="primary"/>
                         </IconButton>
                     </Paper>
+                </Grid>
                 </Grid>
             </Toolbar>
           </Container>
