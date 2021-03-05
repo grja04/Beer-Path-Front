@@ -7,11 +7,18 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   pageRoot: {
-    background:'red',
+    background:'#FFBF00',
+    },
+    contentWrapper:{
+      background:'#FFBF00',
+      margin:'1%',
+      justifyContent:'center',
+      alignItems:'center',
+      display:'block'
     },
     cardWrapper:{
-      background: 'green',
-      margin:'5% 5%',
+      background: '#1d1d1d',
+      margin:'2% 5%',
       padding: '2%',
       justifyContent:'center'
     }}))
@@ -20,16 +27,18 @@ function Home() {
   const classes = useStyles();
   return (
     <Grid container className={classes.pageRoot}>
-      <Grid item>
-       <h1>Esta es la pagina de home</h1>
+      <Grid container className={classes.contentWrapper}>
+        <Grid item>
+          <h1>Esta es la pagina de home</h1>
+        </Grid>
+        <Grid item>
+          <SearchField/>
+        </Grid>
+        <Grid item>
+          <YellowButton text="Post" to='/post'/>
+        </Grid>
       </Grid>
-     <Grid item>
-       <SearchField/>
-     </Grid>
-     <Grid item>
-       <YellowButton text="Post" to='/post'/>
-     </Grid>
-     <Grid container className={classes.cardWrapper}>
+      <Grid container className={classes.cardWrapper}>
        <Grid item>
          <MediaCard/>
        </Grid>
@@ -42,7 +51,7 @@ function Home() {
        <Grid item>
          <MediaCard/>
        </Grid>
-     </Grid>
+      </Grid>
     </Grid>
   );
 }
