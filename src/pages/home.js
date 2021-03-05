@@ -35,6 +35,12 @@ function Home() {
           <SearchField/>
         </Grid>
         <Grid item>
+        <div style={{background:"white", height:"400px", width:"60%"}}>
+          <h1 style={{color: "red"}}>Aqui va el mapa</h1>
+          <p>Se necesita el mapa de google</p>
+        </div>
+        </Grid>
+        <Grid item>
           <YellowButton text="Post" to='/post'/>
         </Grid>
       </Grid>
