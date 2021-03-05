@@ -17,7 +17,7 @@ import BottomAppBar from './components/footer'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background:'red',
+    background:'#FFBF00',
     flexGrow:1,
     textAlign: 'center',
     width: '100%',

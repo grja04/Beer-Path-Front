@@ -9,6 +9,10 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
+  button:{
+    background:'#FFBF00',
+    width:'90%',
+  },
 }));
 
 export default function YellowButton(props) {
@@ -16,11 +20,11 @@ export default function YellowButton(props) {
 
   return (
     <div className={classes.root}>
-    <Link to={props.to}>
-      <Button variant="contained" color="secondary">
-        {props.text}
-      </Button>
-    </Link>
+      <Link to={props.to}>
+        <Button variant="contained" className={classes.button}>
+          {props.text}
+        </Button>
+      </Link>
     </div>
   );
 }

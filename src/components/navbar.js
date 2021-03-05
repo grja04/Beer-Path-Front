@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    color: '#FFBF00',
   },
   title: {
     display: 'none',
@@ -68,6 +69,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       display: 'flex',
     },
+  },
+  menuMobile:{
+    background:'red',
   },
   sectionMobile: {
     display: 'flex',
@@ -148,7 +152,7 @@ export default function NavBar() {
             color="inherit"
             aria-label="open drawer"
           >
-            <HomeIcon/>
+            <HomeIcon fontSize="large"/>
           </IconButton></Link>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
