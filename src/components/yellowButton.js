@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
   button:{
     background:'#FFBF00',
     width:'90%',
+    margin:'1%'
   },
 }));
 

@@ -6,6 +6,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import YellowButton from '../components/yellowButton';
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles((theme) => ({
   pageRoot: {
@@ -60,10 +61,13 @@ function Post() {
           </FormControl>
         </Grid>
         <Grid item className={classes.formStyle}>
-          <FormControl>
-          <InputLabel htmlFor="my-input">Comments</InputLabel>
-          <Input id="my-input" aria-describedby="my-helper-text" />
-          </FormControl>
+          <TextField
+            id="outlined-multiline-static"
+            label="Comments"
+            multiline
+            rows={4}
+            variant="outlined"
+          />
         </Grid>
         <Grid item className={classes.formStyle}>
           <YellowButton text="Done!"/>
