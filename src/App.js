@@ -14,7 +14,8 @@ import Profile from './pages/profile'
 import Post from './pages/post'
 import NavBar from './components/navbar'
 import BottomAppBar from './components/footer'
-
+import {GoogleMap, Marker, InfoWindow, useLoadScript} from '@react-google-maps/api'; 
+const libraries =["places"]; 
 const useStyles = makeStyles((theme) => ({
   root: {
     background:'#FFBF00',
@@ -28,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 function App() {
+ 
   const classes = useStyles();
   return (
     <Grid container className={classes.root}>
