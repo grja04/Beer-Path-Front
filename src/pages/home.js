@@ -4,6 +4,9 @@ import Grid from '@material-ui/core/Grid';
 import SearchField from './../components/searchField'
 import MediaCard from '../components/card';
 import { makeStyles } from '@material-ui/core/styles';
+import MapsContainer from '../components/maps'
+import {GoogleMap,useLoadScript, Marker, InfoWindow} from '@react-google-maps/api'; 
+
 
 const useStyles = makeStyles((theme) => ({
   pageRoot: {
@@ -24,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     }}))
 
 function Home() {
+  
   const classes = useStyles();
   return (
     <Grid container className={classes.pageRoot}>
@@ -32,9 +36,8 @@ function Home() {
           <SearchField/>
         </Grid>
         <Grid item>
-        <div style={{background:"white", height:"400px", width:"60%"}}>
-          <h1 style={{color: "red"}}>Aqui va el mapa</h1>
-          <p>Se necesita el mapa de google</p>
+        <div >
+         <MapsContainer/>
         </div>
         </Grid>
         <Grid item>
