@@ -13,11 +13,21 @@ const Signup = () => {
         setDataEntry({...dataEntry, [property]:value})
     }
     const saveDataEntry = ()=>{
-        console.log('el boton esta funcionando en singup')
-        fetch("https://beerpath.herokuapp.com/auth/signup/",{
-            method: "POST",
-            body: dataEntry
-          })
+        console.log(dataEntry)
+        fetch('https://beerpath.herokuapp.com/auth/signup/', {
+            method: 'POST', // or 'PUT'
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dataEntry),
+            })
+            .then(response => response.json())
+            .then(dataEntry => {
+            console.log('Success:', dataEntry);
+            })
+            .catch((error) => {
+            console.error('Error:', error);
+});
     }
     return (
         <Grid>
@@ -28,7 +38,7 @@ const Signup = () => {
                 </Grid>
                 <TextField
                 // value={!dataEntry?"":dataEntry.name} 
-                name="username" 
+                name="userName" 
                 onChange={getEntryData} 
                 label='Username' 
                 placeholder='Enter username' 
@@ -46,7 +56,7 @@ const Signup = () => {
                 />
                 <TextField 
                 // value={!dataEntry?"":dataEntry.hash}
-                name="hash" 
+                name="password" 
                 onChange={getEntryData} 
                 label='Password' 
                 placeholder='Enter passwowrd' 
