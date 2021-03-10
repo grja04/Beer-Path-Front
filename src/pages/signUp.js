@@ -13,7 +13,6 @@ const Signup = () => {
         setDataEntry({...dataEntry, [property]:value})
     }
     const saveDataEntry = ()=>{
-        console.log(dataEntry)
         fetch('https://beerpath.herokuapp.com/auth/signup/', {
             method: 'POST', // or 'PUT'
             headers: {
