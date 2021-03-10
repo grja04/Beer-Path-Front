@@ -45,7 +45,7 @@ function MapsContainer() {
             <h1 class="mapProps"></h1>
             <Search />
             <GoogleMap mapContainerStyle={mapContainerStyle}
-                zoom={18}
+                zoom={15}
                 center={center}
                 onClick={onMapClick}
                 onLoad={onMapLoad}
