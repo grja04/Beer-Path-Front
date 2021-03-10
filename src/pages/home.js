@@ -33,9 +33,6 @@ function Home() {
     <Grid container className={classes.pageRoot}>
       <Grid container className={classes.contentWrapper}>
         <Grid item>
-          <h1>Esta es la pagina de home</h1>
-        </Grid>
-        <Grid item>
           <SearchField/>
         </Grid>
         <Grid item>

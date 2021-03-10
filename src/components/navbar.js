@@ -134,7 +134,7 @@ export default function NavBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <YellowButton text="Log In" to='/logIn'/>
+        <YellowButton text="Sign In" to='/logIn'/>
       </MenuItem>
       <MenuItem>
         <YellowButton text="Sign Up" to='/signUp'/>
@@ -156,7 +156,7 @@ export default function NavBar() {
           </IconButton></Link>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <YellowButton text="Log In" to='/logIn'/>
+            <YellowButton text="Sign In" to='/logIn'/>
             <YellowButton text="Sign Up" to='/signUp'/>
           </div>
           <div className={classes.sectionMobile}>

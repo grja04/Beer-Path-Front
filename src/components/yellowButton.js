@@ -22,7 +22,7 @@ export default function YellowButton(props) {
   return (
     <div className={classes.root}>
       <Link to={props.to}>
-        <Button variant="contained" className={classes.button}>
+        <Button variant="contained" className={classes.button} onClick={props.onClick}>
           {props.text}
         </Button>
       </Link>

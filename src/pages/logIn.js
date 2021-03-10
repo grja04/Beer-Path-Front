@@ -30,7 +30,7 @@ const LogIn = () => {
                 <Button type='submit' color='primary' fullWidth variant="contained" style={avatarStyle}>Sign In</Button>
                 <Typography fullWidth> Do you have an account?
                 
-                <Link href="#" /*onClick={preventDefault}*/>
+                <Link href="/signUp" /*onClick={preventDefault}*/>
                  Sign up!
               </Link>
               </Typography>

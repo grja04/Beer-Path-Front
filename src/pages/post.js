@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from "react"
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
@@ -29,6 +29,19 @@ const useStyles = makeStyles((theme) => ({
 
 function Post() {
   const classes = useStyles();
+  const [postData, setPostData] = useState({});
+  const getPostData=event=>{
+    let property = event.target.name
+    let value = event.target.value
+    setPostData({...postData, [property]:value})
+  }
+  const savePostData = ()=>{
+    console.log('el boton esta funcionando en post')
+    fetch("",{
+      method: "POST",
+      body: JSON.stringify(postData)
+    })
+  }
   return (
     <Grid container className={classes.pageRoot}>
       <Grid container className={classes.contentWrapper}>
@@ -38,30 +51,51 @@ function Post() {
         <Grid item className={classes.formStyle}>
           <FormControl>
           <InputLabel htmlFor="my-input">Beer Name</InputLabel>
-          <Input id="my-input" aria-describedby="my-helper-text" />
+          <Input 
+          onChange={getPostData} 
+          name="name" 
+          id="my-input" 
+          aria-describedby="my-helper-text" 
+          />
           <FormHelperText id="my-helper-text">Thanks for share your experience!</FormHelperText>
           </FormControl>
         </Grid>
         <Grid item className={classes.formStyle}>
           <FormControl>
           <InputLabel htmlFor="my-input">Producer Home</InputLabel>
-          <Input id="my-input" aria-describedby="my-helper-text" />
+          <Input 
+          onChange={getPostData} 
+          name="producer" 
+          id="my-input" 
+          aria-describedby="my-helper-text" 
+          />
           </FormControl>
         </Grid>
         <Grid item className={classes.formStyle}>
           <FormControl>
           <InputLabel htmlFor="my-input">Place</InputLabel>
-          <Input id="my-input" aria-describedby="my-helper-text" />
+          <Input 
+          onChange={getPostData} 
+          name="location" id="my-input" 
+          aria-describedby="my-helper-text" 
+          />
           </FormControl>
         </Grid>
         <Grid item className={classes.formStyle}>
           <FormControl>
           <InputLabel htmlFor="my-input">Price</InputLabel>
-          <Input id="my-input" aria-describedby="my-helper-text" />
+          <Input 
+          onChange={getPostData} 
+          name="price" 
+          id="my-input" 
+          aria-describedby="my-helper-text" 
+          />
           </FormControl>
         </Grid>
         <Grid item className={classes.formStyle}>
-          <TextField
+          <TextField 
+            name="review"
+            onChange={getPostData} 
             id="outlined-multiline-static"
             label="Comments"
             multiline
@@ -70,11 +104,10 @@ function Post() {
           />
         </Grid>
         <Grid item className={classes.formStyle}>
-          <YellowButton text="Done!"/>
+          <YellowButton text="Done!" onClick={savePostData}/>
         </Grid>
       </Grid>
     </Grid>
   );
 }
-
 export default Post;
