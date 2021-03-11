@@ -42,7 +42,7 @@ function BeerData() {
         method: 'POST', // or 'PUT'
         headers: {
         'Content-Type': 'application/json',
-        'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZ…IxNX0.FMC2PZosXCggIsrZMyl1cVt2fjy4XHX9T0Z4Bpoy2tM",
+        'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZm9vYmFyIiwiaWQiOiI2MDQ5MGY3YzIxYTgwYzAwMTU2YmI0NDEiLCJpYXQiOjE2MTU0OTIyNTQsImV4cCI6MTYxNTQ5NDA1NH0.7pNT652A-es5jaFUimwQIRfGlQFLC-XmjP1UwoX_j4A",
         },
         body: JSON.stringify(beerData),
         })
@@ -86,7 +86,7 @@ const handleChange = (event) => {
               onChange={handleChange}
               onFocus={getBeerColletion}
               inputProps={{
-                name: 'name',
+                name: 'beerName',
               }}
                 >
               <option aria-label="None" value="" />
@@ -102,7 +102,7 @@ const handleChange = (event) => {
           <InputLabel htmlFor="my-input">Producer Home</InputLabel>
           <Input 
           onChange={getBeerData} 
-          name="producer" 
+          name="beerProducer" 
           id="my-input" 
           aria-describedby="my-helper-text" 
           />
