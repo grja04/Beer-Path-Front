@@ -27,33 +27,32 @@ const useStyles = makeStyles((theme) => ({
       margin:'3%'
     }}))
 
-function Post() {
+function BeerData() {
   const classes = useStyles();
-  const [postData, setPostData] = useState({});
-  const getPostData=event=>{
+  const [beerData, setBeerData] = useState({});
+  const getBeerData = event=>{
     let property = event.target.name
     let value = event.target.value
-    setPostData({...postData, [property]:value})
+    setBeerData({...beerData, [property]:value})
   }
-  const savePostData = ()=>{
+  const saveBeerData = ()=>{
     console.log('el boton esta funcionando en post')
     fetch("",{
       method: "POST",
-      body: JSON.stringify(postData)
+      body: JSON.stringify(beerData)
     })
   }
   return (
     <Grid container className={classes.pageRoot}>
       <Grid container className={classes.contentWrapper}>
         <Grid item>
-          <h1>Please, fill the information!!!</h1>
-          <YellowButton text="Crear una cerveza" to="/beer"/>
+          <h1>Comparte tu cerveza con nosotros!!!</h1>
         </Grid>
         <Grid item className={classes.formStyle}>
           <FormControl>
           <InputLabel htmlFor="my-input">Beer Name</InputLabel>
           <Input 
-          onChange={getPostData} 
+          onChange={getBeerData} 
           name="name" 
           id="my-input" 
           aria-describedby="my-helper-text" 
@@ -65,7 +64,7 @@ function Post() {
           <FormControl>
           <InputLabel htmlFor="my-input">Producer Home</InputLabel>
           <Input 
-          onChange={getPostData} 
+          onChange={getBeerData} 
           name="producer" 
           id="my-input" 
           aria-describedby="my-helper-text" 
@@ -73,42 +72,10 @@ function Post() {
           </FormControl>
         </Grid>
         <Grid item className={classes.formStyle}>
-          <FormControl>
-          <InputLabel htmlFor="my-input">Place</InputLabel>
-          <Input 
-          onChange={getPostData} 
-          name="location" id="my-input" 
-          aria-describedby="my-helper-text" 
-          />
-          </FormControl>
-        </Grid>
-        <Grid item className={classes.formStyle}>
-          <FormControl>
-          <InputLabel htmlFor="my-input">Price</InputLabel>
-          <Input 
-          onChange={getPostData} 
-          name="price" 
-          id="my-input" 
-          aria-describedby="my-helper-text" 
-          />
-          </FormControl>
-        </Grid>
-        <Grid item className={classes.formStyle}>
-          <TextField 
-            name="review"
-            onChange={getPostData} 
-            id="outlined-multiline-static"
-            label="Comments"
-            multiline
-            rows={4}
-            variant="outlined"
-          />
-        </Grid>
-        <Grid item className={classes.formStyle}>
-          <YellowButton text="Done!" onClick={savePostData}/>
+          <YellowButton text="Done!" onClick={saveBeerData}/>
         </Grid>
       </Grid>
     </Grid>
   );
 }
-export default Post;
+export default BeerData;

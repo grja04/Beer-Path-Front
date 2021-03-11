@@ -15,6 +15,7 @@ import Post from './pages/post'
 import NavBar from './components/navbar'
 import BottomAppBar from './components/footer'
 import {GoogleMap, Marker, InfoWindow, useLoadScript} from '@react-google-maps/api'; 
+import BeerData from './pages/beerData';
 const libraries =["places"]; 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,6 +50,9 @@ function App() {
             </Route>
             <Route path="/post">
               <Post/>
+            </Route>
+            <Route path="/beer">
+              <BeerData/>
             </Route>
             <Route exact path="/">
               <Home/>
