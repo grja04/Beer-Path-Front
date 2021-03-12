@@ -1,22 +1,28 @@
-import React,{useState} from "react"
-import { 
-    Avatar, 
-    FormControlLabel, 
-    Grid, 
-    Paper, 
-    TextField, 
-    Checkbox, 
-    Button, 
-    Typography, 
-    Link 
-} from "@material-ui/core";
-import LockIcon from '@material-ui/icons/Lock';
+import React, {useState} from "react";
+import { Grid, TextField, Button } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
+
+
+
+
+const useStyles = makeStyles({
+    root: {
+      background: '#F7A205',
+      border: 0,
+      borderRadius: 3,
+      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+      color: 'white',
+      height: 48,
+      padding: '0 30px',
+    },
+  });
+
+
 
 const LogIn = () => {
+    const classes = useStyles();
     const [logInData, setlogInData] = useState({});
-    const paperStyle = { padding: 20, height: '70vh', width: 300, margin: "20px auto", backgroundColor: '#FFBF00' }
-    const avatarStyle = { backgroundColor: '#263238' }
-
+  
     const getLogInData = event=>{
         let property = event.target.name
         let value = event.target.value
@@ -39,57 +45,33 @@ const LogIn = () => {
 });
     }
     return (
-        <Grid>
-            <Paper elevation={10} style={paperStyle}>
-                <Grid align='center'>
-                    <Avatar style={avatarStyle}><LockIcon /></Avatar>
-                    <h2>Sign In</h2>
-                </Grid>
-                <TextField 
-                name="userName"
-                onChange={getLogInData}
-                label='Username' 
-                placeholder='Enter username' 
-                fullWidth 
-                required 
-                />
-                <TextField 
-                name="password"
-                onChange={getLogInData}
-                label='Password' 
-                placeholder='Enter passwowrd' 
-                type='password' 
-                fullWidth 
-                required 
-                />
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            // checked={state.checkedF}
-                            // onChange={handleChange}
-                            name="checkedF"name=""
 
-                            indeterminate
-                        />
-                    }
-                    label="Remember Me"
-                />
-                <Button 
-                onClick={saveLogInData}
-                type='submit' color='primary' fullWidth variant="contained" style={avatarStyle}>Sign In</Button>
-                <Typography fullWidth> Do you have an account?
-                
-                <Link href="/signUp" /*onClick={preventDefault}*/>
-                 Sign up!
-              </Link>
-              </Typography>
-              <Typography> 
-              <Link href="#" /*onClick={preventDefault}*/>
-              Forgot password?
-            </Link>
-            </Typography>
-            </Paper>
-        </Grid>
+        <div>
+            <Grid container stlye={{ minHeight: '100vh' }}>
+                <Grid item xs={12} sm={6} style={{ backgroundColor: '#F5F5F5' }}>
+
+                    <img src='/beer-celebration.svg' style={{ width: '100%', height: '100%',}} alt="brand">
+                    </img>
+                </Grid>
+                <Grid container item item xs={12} sm={6} alignItems="center" direction="column" justify="space-between" style={{padding:10,  backgroundColor: '#F5F5F5'}}>
+                <div/>
+                <div style={{display:"flex", flexDirection:"column", maxWidth:400, mingWidth:300}}>
+                <Grid class="fontBeba" container justify="center" width={200}>
+                <h2>SIGN IN</h2>
+                </Grid>
+                <TextField className={classes.root} label="Username" margin="normal" required/>
+                <TextField className={classes.root} type="password" label="Password" margin="normal" required/>
+                <div style={{height:20}}/>
+                <Button class="fontBeba" style={{backgroundColor:"#292929", color:"#F7A205"}} variant="contained">
+                HECHO!
+                </Button>
+                <Button class="fontBeba" style={{border:"none", backgroundColor:"#f5f5f5"}}> Aun no tienes cuenta?</Button>
+                </div>
+                <div/>
+                </Grid>
+            </Grid>
+        </div>
+
     )
 }
-export default LogIn; 
+export default LogIn;

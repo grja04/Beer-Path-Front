@@ -21,3 +21,11 @@ code {
   margin:0; 
   padding:0, 
 }
+.loginImg { height: 30px; width: 30px;
+  
+}
+
+.fontBeba{
+  font-family: 'Bebas Neue', cursive;
+  font-size: large;
+}
