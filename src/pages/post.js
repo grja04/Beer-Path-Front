@@ -7,6 +7,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import YellowButton from '../components/yellowButton';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   pageRoot: {
@@ -47,7 +49,9 @@ function Post() {
       <Grid container className={classes.contentWrapper}>
         <Grid item>
           <h1>Please, fill the information!!!</h1>
-          <YellowButton text="Crear una cerveza" to="/beer"/>
+          <Link to='/beer'><Button variant="contained" color="secondary">
+            NUEVA CERVEZA
+          </Button></Link>
         </Grid>
         <Grid item className={classes.formStyle}>
           <FormControl>

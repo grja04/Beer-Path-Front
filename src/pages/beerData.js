@@ -7,13 +7,26 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import YellowButton from '../components/yellowButton';
 import NativeSelect from '@material-ui/core/NativeSelect';
+import Button from '@material-ui/core/Button';
+import {Link} from "react-router-dom";
+import { borders } from '@material-ui/system';
 
 const useStyles = makeStyles((theme) => ({
   pageRoot: {
-    background:'#FFBF00',
+    background:'#F7A205',
+    justifyContent:'center',
+    alignItems:'center',
+    },
+    buttonStyle:{
+      background:'#292929',
+      color:'#F7A205'
+    },
+    containerStyles:{
+      border:'2px solid',
+      borderColor:'#292929',
     },
     contentWrapper:{
-      background:'#FFBF00',
+      background:'#E5E5E5',
       margin:'1%',
       justifyContent:'center',
       alignItems:'center',
@@ -30,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 function BeerData() {
   const classes = useStyles();
   const [beerData, setBeerData] = useState({});
-  const [beerColletion, setBeerColletion] = useState({});
+  const [beerColletion, setBeerColletion] = useState({data:[]});
 
   const getBeerData = event=>{
     let property = event.target.name
@@ -74,12 +87,24 @@ const handleChange = (event) => {
 };
   return (
     <Grid container className={classes.pageRoot}>
-      <Grid container className={classes.contentWrapper}>
+      <Grid item className={classes.containerStyles} lg={6} md={6} sm={12} spacing={1}>
         <Grid item>
-          <h1>Comparte tu cerveza con nosotros!!!</h1>
+          <p>kjsdjbflasbflasbjbfaslblabfalsjbmqw;dlmq;wldmqw;ldmqw;lmbdjkasbdkjas</p>
         </Grid>
-        <Grid item className={classes.formStyle}>
-          <FormControl className={classes.formControl}>
+        <Grid item>
+          <p>kjsdmq;abflasbljbflasbflasbflafblajbfaslblabfalsjbmqw;dlmq;wldmqw;ldmqw;lmbdjkasbdkjas</p>
+        </Grid>
+        <Grid item>
+          <p>kjsdadas;kncaskl;ndlabflasbljbflasbflasbflafblajbfaslblabfalsjbmqw;dlmq;wldmqw;ldmqw;lmbdjkasbdkjas</p>
+        </Grid>
+      </Grid>
+      <Grid item className={classes.containerStyles} lg={6} md={6} sm={12} spacing={1}>
+        <Grid item sm={10} className={classes.contentWrapper}>
+          <Grid item>
+            <h2>Comparte tu cerveza con nosotros!!!</h2>
+          </Grid>
+          <Grid item className={classes.formStyle}>
+            <FormControl className={classes.formControl}>
             <InputLabel htmlFor="age-native-helper">Cerveza</InputLabel>
             <NativeSelect
               value={beerData.name}
@@ -88,28 +113,41 @@ const handleChange = (event) => {
               inputProps={{
                 name: 'beerName',
               }}
-                >
-              <option aria-label="None" value="" />
-              <option value={'Cerveza 1'}>Cerveza 1</option>
-              <option value={'Cerveza 2'}>Cerveza 2</option>
-              <option value={'Cerveza 3'}>Cerveza 3</option>
-            </NativeSelect>
-            <FormHelperText>Gracias por compartir tu experiencia!</FormHelperText>
-          </FormControl>
-        </Grid>
-        <Grid item className={classes.formStyle}>
-          <FormControl>
-          <InputLabel htmlFor="my-input">Producer Home</InputLabel>
-          <Input 
-          onChange={getBeerData} 
-          name="beerProducer" 
-          id="my-input" 
-          aria-describedby="my-helper-text" 
-          />
-          </FormControl>
-        </Grid>
-        <Grid item className={classes.formStyle}>
-          <YellowButton text="Done!" onClick={saveBeerData}/>
+                >{
+                  beerColletion.data.map(beer=>{
+                    return(
+                      <option value={beer.beerName}>{beer.beerName}</option>
+                    )
+                  })
+                }
+                <option aria-label="None" value="" />
+                <option value={'Cerveza 2'}>Cerveza 2</option>
+                <option value={'Cerveza 3'}>Cerveza 3</option>
+              </NativeSelect>
+              <FormHelperText>Gracias por compartir tu experiencia!</FormHelperText>
+            </FormControl>
+            </Grid>
+            <Grid item className={classes.formStyle}>
+            <FormControl>
+            <InputLabel htmlFor="my-input">Producer Home</InputLabel>
+            <Input 
+            onChange={getBeerData} 
+            name="beerProducer" 
+            id="my-input" 
+            aria-describedby="my-helper-text" 
+            />
+            </FormControl>
+          </Grid>
+          <Grid item className={classes.formStyle}>
+            <Button variant="contained"  onClick={saveBeerData} className={classes.buttonStyle}>
+              HECHO!
+            </Button>
+          </Grid>
+          <Grid item className={classes.formStyle}>
+          <Link to='/post'><Button variant="contained" className={classes.buttonStyle} >
+              COMPARTE UNA CERVEZA!
+            </Button></Link>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
