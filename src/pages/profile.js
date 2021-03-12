@@ -102,7 +102,7 @@ function Profile() {
     <Grid>
        <Card className={classes.root} variant="outlined" >
     <CardContent >
-      <CardMedia xs={4} component="img" image="src\images\d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png" >
+      <CardMedia xs={4} component="img" image="/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png" >
     
       </CardMedia>
       <Typography className={classes.userName} xs={4} variant="h5" component="h2">Koder10</Typography>
