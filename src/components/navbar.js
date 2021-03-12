@@ -7,7 +7,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import YellowButton from './yellowButton'
-import HomeIcon from '@material-ui/icons/Home';
 import {Link} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -18,8 +17,12 @@ const useStyles = makeStyles((theme) => ({
     background: '#1d1d1d',
   },
   menuButton: {
-    marginRight: theme.spacing(2),
-    color: '#FFBF00',
+    marginRight: theme.spacing(1),
+    color: '#F5F5F5',
+  },
+  logo:{
+    margin:'5px',
+    fontFamily:'Bebas Neue',
   },
   title: {
     display: 'none',
@@ -146,14 +149,16 @@ export default function NavBar() {
     <div className={classes.grow}>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
-          <Link to="/"><IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <HomeIcon fontSize="large"/>
-          </IconButton></Link>
+          <Link to="/">
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="open drawer"
+            >
+              <h3 className={classes.logo}>BEERPATH</h3>
+            </IconButton>
+          </Link>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <YellowButton text="Sign In" to='/logIn'/>

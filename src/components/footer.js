@@ -34,6 +34,12 @@ const useStyles = makeStyles((theme) => ({
     bottom: 0,
     background: '#1d1d1d'
   },
+  logo:{
+    fontFamily:'Bebas Neue'
+  },
+  social:{
+    color:'#F7A205'
+  },
   fabButton: {
     position: 'absolute',
     zIndex: 1,
@@ -54,28 +60,27 @@ export default function Footer() {
                 <Grid container>
                 <Grid item xs={12} sm={4}>
                     <Paper className={classes.paper}>
+                        <h3 className={classes.paragraph}>Nosotros</h3>
+                        <h3 className={classes.paragraph}>Preguntas Frecuentes</h3>
                         <h3 className={classes.paragraph}>Contacto</h3>
-                        <p className={classes.paragraph}>Tel. 56-11-12-40-34</p>
-                        <p className={classes.paragraph}>Email: contacto@chelap.com</p>
-                        <p className={classes.paragraph}>Direccion: en tu corazon <FavoriteIcon/></p>
                     </Paper>
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <Paper className={classes.paper}>
-                        <p><Filter9PlusIcon/></p>
+                        <h2 className={classes.logo}>BEERPATH</h2>
                         <p>Evita el exceso</p>
                     </Paper>
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <Paper className={classes.paper}>
                         <IconButton edge="end" color="inherit">
-                            <FacebookIcon color="primary"/>
+                            <FacebookIcon className={classes.social}/>
                         </IconButton>
                         <IconButton edge="end" color="inherit">
-                            <InstagramIcon color="secondary"/>
+                            <InstagramIcon className={classes.social}/>
                         </IconButton>
                         <IconButton edge="end" color="inherit">
-                            <TwitterIcon color="primary"/>
+                            <TwitterIcon className={classes.social}/>
                         </IconButton>
                     </Paper>
                 </Grid>
