@@ -3,6 +3,7 @@ import { Grid, TextField, Button } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 
 
+
 const useStyles = makeStyles({
     root: {
       background: '#F7A205',
@@ -19,6 +20,29 @@ const useStyles = makeStyles({
 
 const LogIn = () => {
     const classes = useStyles();
+    const [logInData, setlogInData] = useState({});
+  
+    const getLogInData = event=>{
+        let property = event.target.name
+        let value = event.target.value
+        setlogInData({...logInData,[property]:value})
+    }
+    const saveLogInData = ()=>{
+        fetch('https://beerpath.herokuapp.com/auth/login/', {
+            method: 'POST', // or 'PUT'
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(logInData),
+            })
+            .then(response => response.json())
+            .then(logInData => {
+            console.log('Success:', logInData);
+            })
+            .catch((error) => {
+            console.error('Error:', error);
+});
+    }
     return (
 
         <div>

@@ -14,8 +14,11 @@
     "bootstrap": "^4.6.0",
     "date-fns": "^2.19.0",
     "dotenv": "^8.2.0",
+<<<<<<< HEAD
     "node-sass": "^5.0.0",
     "prop-types": "^15.7.2",
+=======
+>>>>>>> bfdd1a572465d4d61b2adcbbe542a752e48ab314
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.1",
@@ -49,7 +52,11 @@
       "last 1 safari version"
     ]
   },
+<<<<<<< HEAD
   "devDependencies": {
     "@types/googlemaps": "^3.43.3"
   }
+=======
+  "devDependencies": {}
+>>>>>>> bfdd1a572465d4d61b2adcbbe542a752e48ab314
 }

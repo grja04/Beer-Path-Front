@@ -47,6 +47,7 @@ function Post() {
       <Grid container className={classes.contentWrapper}>
         <Grid item>
           <h1>Please, fill the information!!!</h1>
+          <YellowButton text="Crear una cerveza" to="/beer"/>
         </Grid>
         <Grid item className={classes.formStyle}>
           <FormControl>
