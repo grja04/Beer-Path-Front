@@ -53,7 +53,7 @@ const LogIn = () => {
                     <img src='/beer-celebration.svg' style={{ width: '100%', height: '100%',}} alt="brand">
                     </img>
                 </Grid>
-                <Grid container item item xs={12} sm={6} alignItems="center" direction="column" justify="space-between" style={{padding:10,  backgroundColor: '#F5F5F5'}}>
+                <Grid container item xs={12} sm={6} alignItems="center" direction="column" justify="space-between" style={{padding:10,  backgroundColor: '#F5F5F5'}}>
                 <div/>
                 <div style={{display:"flex", flexDirection:"column", maxWidth:400, mingWidth:300}}>
                 <Grid class="fontBeba" container justify="center" width={200}>

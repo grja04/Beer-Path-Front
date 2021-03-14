@@ -36,7 +36,7 @@ function App() {
       <Router>
         <Grid item className={classes.root}>
           <NavBar/>
-          <Link to='/profile'>profile</Link>
+          {/* <Link to='/profile'>Profile</Link> */}
           <Switch>
             <Route path="/logIn">
               <LogIn/>
