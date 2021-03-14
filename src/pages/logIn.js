@@ -57,7 +57,7 @@ const LogIn = () => {
                 <div/>
                 <div style={{display:"flex", flexDirection:"column", maxWidth:400, mingWidth:300}}>
                 <Grid class="fontBeba" container justify="center" width={200}>
-                <h2>SIGN IN</h2>
+                <h2>LOGIN</h2>
                 </Grid>
                 <TextField className={classes.root} label="Username" margin="normal" required/>
                 <TextField className={classes.root} type="password" label="Password" margin="normal" required/>

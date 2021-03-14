@@ -12,11 +12,12 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 345,
     margin:'3%',
-    background:'#8a9597',
-    boxShadow:''
+    boxShadow:'',
+    
+    
   },
   media: {
-    height: 140,
+    height: 250,
   },
 });
 
@@ -28,16 +29,15 @@ export default function MediaCard() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
+          image="public/beer.svg"
+          title="TopBeer"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            Victoria
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+            Una de las mejores Cervezas, con las 3 b. 
           </Typography>
         </CardContent>
       </CardActionArea>

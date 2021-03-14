@@ -30,9 +30,8 @@ const useStyles = makeStyles((theme) => ({
       marginTop:'3%'
     },
     cardWrapper:{
-      background: '#1d1d1d',
-      margin:'2% 5%',
-      padding: '2%',
+      background: '#F5F5F5',
+      marginTop: '5%',
       justifyContent:'center'
     },
     mapContainer:{

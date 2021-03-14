@@ -175,7 +175,7 @@ export default function NavBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <YellowButton text="Sign In" to='/logIn'/>
+            <YellowButton text="Login" to='/logIn'/>
             <YellowButton text="Sign Up" to='/signUp'/>
           </div>
           <div className={classes.sectionMobile}>
