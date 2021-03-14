@@ -99,7 +99,7 @@ const Signup = () => {
                                                             <Typography fullWidth> Already have an account?
                                                         
                                                             <Link href="/logIn" /*onClick={preventDefault}*/>
-                                                            Sign in!
+                                                            LOGIN!
                                                             </Link>
                                                             </Typography>
                                                             <div/>
