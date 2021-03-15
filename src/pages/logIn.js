@@ -47,7 +47,7 @@ const LogIn = () => {
     return (
 
         <div>
-            <Grid container stlye={{ minHeight: '100vh' }}>
+            <Grid container style={{ minHeight: '100vh', maxWidth:"100vw"}}>
                 <Grid item xs={12} sm={6} style={{ backgroundColor: '#F5F5F5' }}>
 
                     <img src='/beer-celebration.svg' style={{ width: '100%', height: '100%',}} alt="brand">
@@ -55,12 +55,12 @@ const LogIn = () => {
                 </Grid>
                 <Grid container item xs={12} sm={6} alignItems="center" direction="column" justify="space-between" style={{padding:10,  backgroundColor: '#F5F5F5'}}>
                 <div/>
-                <div style={{display:"flex", flexDirection:"column", maxWidth:400, mingWidth:300}}>
+                <div style={{display:"flex", flexDirection:"column", maxWidth:400, minWidth:300}}>
                 <Grid class="fontBeba" container justify="center" width={200}>
                 <h2>LOGIN</h2>
                 </Grid>
-                <TextField className={classes.root} label="Username" margin="normal" required/>
-                <TextField className={classes.root} type="password" label="Password" margin="normal" required/>
+                <TextField className={classes.root} label="Nombre de Usuario" margin="normal" required/>
+                <TextField className={classes.root} type="password" label="Contraseña" margin="normal" required/>
                 <div style={{height:20}}/>
                 <Button class="fontBeba" style={{backgroundColor:"#292929", color:"#F7A205"}} variant="contained">
                 HECHO!
