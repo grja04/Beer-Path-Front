@@ -1,6 +1,5 @@
 import React,{useState} from "react"
-import { Avatar, Grid, Paper, TextField, Button, Typography, Link } from "@material-ui/core";
-import LockIcon from '@material-ui/icons/Lock';
+import {Grid, Paper, TextField, Button, Typography, Link } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
     root: {
@@ -10,7 +9,8 @@ const useStyles = makeStyles({
       boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
       color: 'white',
       height: 48,
-      padding: '0 30px',
+
+
     },
   });
 
@@ -42,27 +42,29 @@ const Signup = () => {
     const classes = useStyles();
     return (
         <div>
-             <Grid container stlye={{ minHeight: '100vh' }}>
+             <Grid container style={{ minHeight: '100vh', maxWidth:'100vw' }}>
             
-                            <Grid item xs={12} sm={6} style={{ backgroundColor: '#F5F5F5' }}>
+                            <Grid item xs={12} sm={6} style={{backgroundColor:'#F5F5F5'}}>
 
                              <img src='/craft-beer-manu.svg' style={{ width: '100%', height: '100%',}} alt="brand">
                              </img>
                             </Grid>
 
-                                <Grid container item item xs={12} sm={6} alignItems="center" direction="column" justify="space-between" style={{padding:10,  backgroundColor: '#F5F5F5'}}>
-                                        <div/>
-                                        <div style={{display:"flex",flexDirection:"column", maxWidth:500, minWidth:300}}>
-                                            <Grid class="fontBeba" container item >
-                                                        <TextField
+                                <Grid container item item xs={12} sm={6} alignItems="center" direction="column" justify="space-evenly" style={{padding:10,  backgroundColor: '#F5F5F5'}}>
+                                        <div style={{display:"flex",flexDirection:"column",  maxWidth:400, minWidth:300}}>
+                                            <Grid class="fontBeba" container item justify="center">
+                                                
+                                            <TextField
                                                             // value={!dataEntry?"":dataEntry.name} 
                                                             name="userName" 
                                                             className={classes.root}
                                                             onChange={getEntryData} 
                                                             label='Username' 
                                                             placeholder='Enter username' 
+                                                            margin="normal"
                                                             fullWidth 
                                                             required 
+                        
                                                             />
                                                         <TextField
                                                             // value={!dataEntry?"":dataEntry.email} 
@@ -73,6 +75,7 @@ const Signup = () => {
                                                             placeholder='Enter email' 
                                                             fullWidth 
                                                             required 
+                                                            margin="normal"
                                                             />
                                                         <TextField 
                                                             // value={!dataEntry?"":dataEntry.hash}
@@ -82,6 +85,7 @@ const Signup = () => {
                                                             label='Password' 
                                                             placeholder='Enter passwowrd' 
                                                             type='password' 
+                                                            margin="normal"
                                                             fullWidth 
                                                             required 
                                                             />
@@ -91,18 +95,19 @@ const Signup = () => {
                                                             color='primary' 
                                                             fullWidth 
                                                             variant="contained" 
+                                                            margin="normal"
                                                             style={buttonStyle}
                                                             onClick={saveDataEntry}
                                                             >
                                                             Sign Up
                                                         </Button>
-                                                            <Typography fullWidth> Already have an account?
+                                                            <Typography  margin="normal" fullWidth> Already have an account?
                                                         
                                                             <Link href="/logIn" /*onClick={preventDefault}*/>
                                                             Sign in!
                                                             </Link>
                                                             </Typography>
-                                                            <div/>
+                                        
                                              </Grid>
                                          </div>
                         </Grid>
