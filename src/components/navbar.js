@@ -8,6 +8,8 @@ import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import YellowButton from './yellowButton'
 import {Link} from "react-router-dom";
+import SearchIcon from '@material-ui/icons/Search';
+import InputBase from '@material-ui/core/InputBase';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -41,8 +43,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto',
+      marginLeft: theme.spacing(40),
+      width: '50%',
     },
   },
   searchIcon: {
@@ -137,7 +139,7 @@ export default function NavBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <YellowButton text="Sign In" to='/logIn'/>
+        <YellowButton text="Login" to='/logIn'/>
       </MenuItem>
       <MenuItem>
         <YellowButton text="Sign Up" to='/signUp'/>
@@ -154,14 +156,26 @@ export default function NavBar() {
               edge="start"
               className={classes.menuButton}
               color="inherit"
-              aria-label="open drawer"
-            >
+              aria-label="open drawer">
               <h3 className={classes.logo}>BEERPATH</h3>
             </IconButton>
           </Link>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Busca tu cerveza"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <YellowButton text="Sign In" to='/logIn'/>
+            <YellowButton text="Login" to='/logIn'/>
             <YellowButton text="Sign Up" to='/signUp'/>
           </div>
           <div className={classes.sectionMobile}>

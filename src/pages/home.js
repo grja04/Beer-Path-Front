@@ -1,48 +1,67 @@
 import React from 'react'
 import YellowButton from './../components/yellowButton'
 import Grid from '@material-ui/core/Grid';
-import SearchField from './../components/searchField'
 import MediaCard from '../components/card';
 import { makeStyles } from '@material-ui/core/styles';
 import MapsContainer from '../components/maps'
 import {GoogleMap,useLoadScript, Marker, InfoWindow} from '@react-google-maps/api'; 
 
 
+
+
 const useStyles = makeStyles((theme) => ({
   pageRoot: {
-    background:'#FFBF00',
+    background:'#F5F5F5',
     },
     contentWrapper:{
-      background:'#FFBF00',
-      margin:'1%',
-      justifyContent:'center',
-      alignItems:'center',
-      display:'block'
+      background:'#F5F5F5',
+      justifyContent: 'center',
+      marginTop:'-10%'
+    },
+    landingMiddle:{
+      background:'#CD7F08',
+      justifyContent:'left',
+      marginTop: '3%',
+
+    },
+    landingBottom:{
+      background:'#403B3B',
+      justifyContent:'right',
+      marginTop:'3%'
     },
     cardWrapper:{
-      background: '#1d1d1d',
-      margin:'2% 5%',
-      padding: '2%',
+      background: '#F5F5F5',
+      marginTop: '5%',
       justifyContent:'center'
-    }}))
+    },
+    mapContainer:{
+      justifyContent:'center',
+      padding:'5%'
+    }
+  }))
 
 function Home() {
   
   const classes = useStyles();
   return (
     <Grid container className={classes.pageRoot}>
+      <Grid container className={classes.landing}>
+      <img src='/landingtop.jpg' style={{ width: '100%', height: '80%',}} alt="landingtop"/> 
+      </Grid>
       <Grid container className={classes.contentWrapper}>
         <Grid item>
-          <SearchField/>
+          <Grid container className={classes.landingMiddle} >
+              <Grid item xs={12} sm={6} style={{ backgroundColor: '#FFBF00' }}>
+                  <img src='/landingmiddle.jpg' style={{ width: '100%', height: '100%',}} alt="landingmiddle"/>
+              </Grid>
+          </Grid> 
+          <Grid container className={classes.landingBottom}>
+              <Grid item xs={12} sm={6} style={{ backgroundColor: '#F5F5F5' }}>
+                <img src='/landingbottom.svg' style={{ width: '100%', height: '100%',}} alt="landingbottom"/>
+              </Grid>
+          </Grid>    
         </Grid>
-        <Grid item>
-        <div >
-         <MapsContainer/>
-        </div>
-        </Grid>
-        <Grid item>
-          <YellowButton text="Post" to='/post'/>
-        </Grid>
+
       </Grid>
       <Grid container className={classes.cardWrapper}>
        <Grid item>
@@ -57,7 +76,12 @@ function Home() {
        <Grid item>
          <MediaCard/>
        </Grid>
+      </Grid>  
+
+      <Grid container className={classes.mapContainer} >
+         <MapsContainer/>
       </Grid>
+
     </Grid>
   );
 }
