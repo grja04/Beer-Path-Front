@@ -10,6 +10,8 @@ import YellowButton from './yellowButton'
 import {Link} from "react-router-dom";
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import IconProfile from './iconProfile'
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -17,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar:{
     background: '#1d1d1d',
+  },
+  profileIcon:{
+  width:'90px',
+  height:'40px',
+  
   },
   menuButton: {
     marginRight: theme.spacing(1),
@@ -137,7 +144,8 @@ export default function NavBar() {
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
-    >
+    > 
+      
       <MenuItem>
         <YellowButton text="Login" to='/logIn'/>
       </MenuItem>
@@ -175,6 +183,7 @@ export default function NavBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
+            <IconProfile to='/profile'></IconProfile>
             <YellowButton text="Login" to='/logIn'/>
             <YellowButton text="Sign Up" to='/signUp'/>
           </div>
