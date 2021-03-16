@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     
     width: 300,
     height: 400,
-    margin:'3%',
+    margin:'10%',
     boxShadow:'',
   },
   media: {

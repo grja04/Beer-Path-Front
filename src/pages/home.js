@@ -15,8 +15,12 @@ const useStyles = makeStyles((theme) => ({
   pageRoot: {
     background: "#F5F5F5",
   },
-  landing:{
-    background:'#292929',
+  landing: {
+    background: '#292929',
+  },
+  textLanding: {
+    justifyContent: 'center',
+    fontColor: '#F5F5F5',
   },
   landingMiddle: {
     background: "#CD7F08",
@@ -24,17 +28,23 @@ const useStyles = makeStyles((theme) => ({
   },
   landingBottom: {
     background: "#403B3B",
-    justifyContent:'right'
+    justifyContent: 'right'
 
-  }, 
-  imageBottom:{
-  justifyContent:'center'
+  },
+  imageBottom: {
+    justifyContent: 'center'
+  },
+  cardMiddle: {
+    background: '#F5F5F5',
+    height: '50%',
+    width: '50%',
+    justifyItems: 'center'
+
   },
   cardBottom: {
-    background: '#F5F5F5',
-    marginLeft:'-50%',
-    marginTop:'50%',
-    padding:'5%'
+    height: '50%',
+    width: '50%',
+    justifyContent: 'center'
   },
   cardWrapper: {
     background: "#F5F5F5",
@@ -43,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
   mapContainer: {
     justifyContent: "center",
-    padding: "5%",
+    padding: '5%',
   },
 }));
 
@@ -51,47 +61,46 @@ function Home() {
   const classes = useStyles();
   return (
     <Grid container className={classes.pageRoot}>
-      <Grid container className={classes.landing}>
-        <Grid>
-          <img src="/landingtop.jpg" style={{ width: "150%", height: "95%" }} alt="landingtop"/>
+      <Grid container item xs={12} sm={12} className={classes.landing}>
+        <img src="/landingtop.jpg" style={{ width: "100%", height: "95%" }} alt="landingtop" />
+        <Grid container className={classes.textLanding}>
         </Grid>
+
       </Grid>
-      <Grid container className={classes.landingMiddle}>  
-        <Grid item xs={12} sm={6} style={{ backgroundColor: "#F5F5F5" }}>
-          <img src="/landingmiddle.jpg" style={{ width: "100%", height: "100%" }} alt="landingmiddle"/>
+      <Grid container className={classes.landingMiddle}>
+        <Grid item xs={12} sm={6} container style={{ backgroundColor: "#F5F5F5" }}>
+          <img src="/landingmiddle.jpg" style={{ width: "100%", height: "100%" }} alt="landingmiddle" />
         </Grid>
-        <Grid>
-          <Grid container style={{ backgroundColor: "#F5F5F5" }} className={classes.cardBottom}>
-          <h1>Texto de prueba para las cervezas</h1>
-          </Grid>
-        </Grid> 
+        <Grid item xs={12} sm={6} container style={{ backgroundColor: "#F5F5F5" }} className={classes.cardMiddle}>
+          <p><h1>¿Qué es beerpath?</h1></p>
+          <p>Una nueva forma de encontrar y compartir esa cerveza que te hace sentir especial.</p>
+        </Grid>
       </Grid>
       <Grid container className={classes.landingBottom}>
-        <Grid>
-          <Grid container style={{ backgroundColor: "#F7A205" }} className={classes.cardBottom}>
-          <h1>Texto de prueba para las cervezas</h1>
-          </Grid>
+        <Grid item xs={12} sm={6} container style={{ backgroundColor: "#F7A205" }} className={classes.cardBottom}>
+          <p><h1>¿Cómo funcionamos?</h1></p>
         </Grid>
         <Grid container className={classes.imageBottom} item xs={12} sm={6} style={{ backgroundColor: "#403B3B" }}>
-          <img src="/landingbottom.svg" style={{ width: "70%", height: "100%" }} alt="landingbottom"/>
+          <img src="/landingbottom.svg" style={{ width: "70%", height: "100%" }} alt="landingbottom" />
         </Grid>
       </Grid>
       <Grid container className={classes.cardWrapper}>
         <Grid item>
-          <MediaCard />
+          <MediaCard/>
         </Grid>
         <Grid item>
-          <MediaCard />
+          <MediaCard/>
         </Grid>
         <Grid item>
-          <MediaCard />
+          <MediaCard/>
         </Grid>
         <Grid item>
-          <MediaCard />
+          <MediaCard/>
         </Grid>
       </Grid>
       <Grid container className={classes.mapContainer}>
-        <MapsContainer />
+        <h1>Comparte una cerveza con nosotros</h1>
+        <MapsContainer/>
       </Grid>
     </Grid>
   );
