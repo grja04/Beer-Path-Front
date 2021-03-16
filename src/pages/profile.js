@@ -21,7 +21,7 @@ import {getPostById} from '../lib/myApi'
 
 
 
-getPostById()
+
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -168,22 +168,23 @@ function Profile() {
 <Table className={classes.table} aria-label="customized table">
   <TableHead>
     <TableRow>
-      <StyledTableCell name={beerName}>Cerveza</StyledTableCell>
-      <StyledTableCell name={beerCost} align="center">Precio</StyledTableCell>
-      <StyledTableCell name={beerProducer} align="center">Productor</StyledTableCell>
-      <StyledTableCell name={beerLocation} align="center">Lugar de consumo</StyledTableCell>
+      <StyledTableCell >Cerveza</StyledTableCell>
+      <StyledTableCell  align="center">Precio</StyledTableCell>
+      <StyledTableCell  align="center">Productor</StyledTableCell>
+      <StyledTableCell  align="center">Lugar de consumo</StyledTableCell>
       
     </TableRow>
   </TableHead>
   <TableBody>
     {rows.map((row) => (
-      <StyledTableRow key={row.name}>
+      <StyledTableRow key={row.beerName}>
         <StyledTableCell component="th" scope="row">
-          {row.name}
+          {row.beerName}
         </StyledTableCell>
-        <StyledTableCell align="center">{row.calories}</StyledTableCell>
-        <StyledTableCell align="center">{row.fat}</StyledTableCell>
-        <StyledTableCell align="center">{row.carbs}</StyledTableCell>
+        <StyledTableCell  align="center">{row.beerName}</StyledTableCell>
+        <StyledTableCell  align="center">{row.beerCost}</StyledTableCell>
+        <StyledTableCell align="center">{row.beerProducer}</StyledTableCell>
+        <StyledTableCell align="center">{row.beerLocation}</StyledTableCell>
        
       </StyledTableRow>
     ))}
