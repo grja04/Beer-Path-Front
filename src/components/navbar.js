@@ -165,7 +165,7 @@ export default function NavBar() {
               className={classes.menuButton}
               color="inherit"
               aria-label="open drawer">
-              <h3 className={classes.logo}>BEERPATH</h3>
+              <h1 className={classes.logo}>BEERPATH</h1>
             </IconButton>
           </Link>
           <div className={classes.search}>

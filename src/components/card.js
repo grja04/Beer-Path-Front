@@ -10,14 +10,14 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
-    margin:'3%',
+    
+    width: 300,
+    height: 400,
+    margin:'10%',
     boxShadow:'',
-    
-    
   },
   media: {
-    height: 250,
+    height: 300,
   },
 });
 
@@ -29,7 +29,7 @@ export default function MediaCard() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="public/beer.svg"
+          image="public/beer.svg" style={{ width: "20%", height: "20%" }}
           title="TopBeer"
         />
         <CardContent>
