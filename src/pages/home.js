@@ -4,12 +4,9 @@ import Grid from "@material-ui/core/Grid";
 import MediaCard from "../components/card";
 import { makeStyles } from "@material-ui/core/styles";
 import MapsContainer from "../components/maps";
-import {
-  GoogleMap,
-  useLoadScript,
-  Marker,
-  InfoWindow,
-} from "@react-google-maps/api";
+import LandingCardMiddle from '../components/landingCardsMiddle'
+import LandingCardBottom from '../components/landingCardsBottom'
+import { GoogleMap, useLoadScript, Marker, InfoWindow, } from "@react-google-maps/api";
 
 const useStyles = makeStyles((theme) => ({
   pageRoot: {
@@ -26,25 +23,21 @@ const useStyles = makeStyles((theme) => ({
     background: "#CD7F08",
     justifyContent: "left",
   },
+  cardMiddle: {
+    background: '#CD7F08',
+    justifyContent: 'center',
+    padding:'5%'
+  },
   landingBottom: {
     background: "#403B3B",
     justifyContent: 'right'
-
   },
   imageBottom: {
     justifyContent: 'center'
   },
-  cardMiddle: {
-    background: '#F5F5F5',
-    height: '50%',
-    width: '50%',
-    justifyItems: 'center'
-
-  },
   cardBottom: {
-    height: '50%',
-    width: '50%',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    padding:'5%'
   },
   cardWrapper: {
     background: "#F5F5F5",
@@ -63,28 +56,24 @@ function Home() {
     <Grid container className={classes.pageRoot}>
       <Grid container item xs={12} sm={12} className={classes.landing}>
         <img src="/landingtop.jpg" style={{ width: "100%", height: "95%" }} alt="landingtop" />
-        <Grid container className={classes.textLanding}>
-        </Grid>
-
       </Grid>
       <Grid container className={classes.landingMiddle}>
         <Grid item xs={12} sm={6} container style={{ backgroundColor: "#F5F5F5" }}>
           <img src="/landingmiddle.jpg" style={{ width: "100%", height: "100%" }} alt="landingmiddle" />
         </Grid>
-        <Grid item xs={12} sm={6} container style={{ backgroundColor: "#F5F5F5" }} className={classes.cardMiddle}>
-          <p><h1>¿Qué es beerpath?</h1></p>
-          <p>Una nueva forma de encontrar y compartir esa cerveza que te hace sentir especial.</p>
+        <Grid item xs={12} sm={6} container className={classes.cardMiddle}>
+          <LandingCardMiddle/>
         </Grid>
       </Grid>
       <Grid container className={classes.landingBottom}>
-        <Grid item xs={12} sm={6} container style={{ backgroundColor: "#F7A205" }} className={classes.cardBottom}>
-          <p><h1>¿Cómo funcionamos?</h1></p>
+        <Grid item xs={12} sm={6} container className={classes.cardBottom}>
+          <LandingCardBottom/>
         </Grid>
         <Grid container className={classes.imageBottom} item xs={12} sm={6} style={{ backgroundColor: "#403B3B" }}>
           <img src="/landingbottom.svg" style={{ width: "70%", height: "100%" }} alt="landingbottom" />
         </Grid>
       </Grid>
-      <Grid container className={classes.cardWrapper}>
+      <Grid item container className={classes.cardWrapper}>
         <Grid item>
           <MediaCard/>
         </Grid>
@@ -99,7 +88,7 @@ function Home() {
         </Grid>
       </Grid>
       <Grid container className={classes.mapContainer}>
-        <h1>Comparte una cerveza con nosotros</h1>
+        <h1>¡Comparte una cerveza con nosotros!</h1>
         <MapsContainer/>
       </Grid>
     </Grid>
