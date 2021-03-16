@@ -60,6 +60,7 @@ const LogIn = () => {
                 <h2>LOGIN</h2>
                 </Grid>
                 <TextField className={classes.root} label="Nombre de Usuario" margin="normal" required/>
+                <TextField className={classes.root} label="Correo" margin="normal" required/>
                 <TextField className={classes.root} type="password" label="Contraseña" margin="normal" required/>
                 <div style={{height:20}}/>
                 <Button class="fontBeba" style={{backgroundColor:"#292929", color:"#F7A205"}} variant="contained">
