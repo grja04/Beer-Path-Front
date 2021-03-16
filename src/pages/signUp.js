@@ -1,6 +1,8 @@
 import React,{useState} from "react"
 import {Grid, Paper, TextField, Button, Typography, Link } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
+import {useHistory} from 'react-router-dom'
+
 const useStyles = makeStyles({
     root: {
       background: '#F7A205',
@@ -16,6 +18,7 @@ const useStyles = makeStyles({
 
 
 const Signup = () => {
+    const history = useHistory()
     const [dataEntry, setDataEntry] = useState({});
     const buttonStyle = {backgroundColor:'#263238'}
     const getEntryData = event=>{
@@ -34,6 +37,12 @@ const Signup = () => {
             .then(response => response.json())
             .then(dataEntry => {
             console.log('Success:', dataEntry);
+            if (dataEntry.success){
+                localStorage.setItem('token', dataEntry.data.token)
+                history.push('/profile')
+            }else{
+                alert('Ya existe una cuenta con esos datos')
+            }
             })
             .catch((error) => {
             console.error('Error:', error);

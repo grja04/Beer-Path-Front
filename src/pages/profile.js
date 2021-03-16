@@ -17,10 +17,11 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CardActionArea from '@material-ui/core/CardActionArea'
 import {useHistory} from 'react-router-dom'
+import {getPostById} from '../lib/myApi'
 
 
 
-
+getPostById()
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -83,7 +84,7 @@ const useStyles = makeStyles({
 
   profileImage: {
     height: 'auto',
-    src:'src/images/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png',
+    src:'./public/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png',
  },
   table: {
     minWidth: 300,
@@ -109,10 +110,10 @@ buttonContainer: {
 
 
 
-
 function Profile() {
+ 
   const classes = useStyles();
-  // const history = useHistory()
+  const history = useHistory()
   // const [token, setToken] = useState(null)
 
   // useEffect(()=>{
@@ -123,6 +124,22 @@ function Profile() {
   // if(!token){
   //   return null
   // }
+  // const postDataByID = ()=>{
+  //   fetch('https://beerpath.herokuapp.com/beer/', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(getPostById),
+  //   })
+  //   .then(res => res.json())
+  //   .then(getPostById =>{
+  //     console.log('Success:', getPostById)
+  //   })
+
+  // }
+
+   
 
   return (
     
@@ -130,10 +147,9 @@ function Profile() {
       <Grid container
   direction="row"
   justify="center"
-  
-  className={classes.containerBase}>
-    <Grid item xs={4} component="img" image='src/images/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png' className={classes.profileImage}>
-   
+  >
+    <Grid item xs={4} component="img" image='public/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png'>
+    
     
     </Grid>
      <Grid item xs={4}  >
@@ -144,21 +160,18 @@ function Profile() {
      <Button variant="contained" size="large" className={classes.addButton}>Añade una Cerveza</Button>
      </Grid>
   </Grid>
-  <Paper item xs={12} >
-    
-  </Paper>
 
-  <Grid>
-    
-  </Grid>
- <TableContainer component={Paper}>
+
+  
+  <Paper item xs={12} >
+    <TableContainer component={Paper}>
 <Table className={classes.table} aria-label="customized table">
   <TableHead>
     <TableRow>
-      <StyledTableCell>Cerveza</StyledTableCell>
-      <StyledTableCell align="center">Precio</StyledTableCell>
-      <StyledTableCell align="center">Productor</StyledTableCell>
-      <StyledTableCell align="center">Lugar de consumo</StyledTableCell>
+      <StyledTableCell name={beerName}>Cerveza</StyledTableCell>
+      <StyledTableCell name={beerCost} align="center">Precio</StyledTableCell>
+      <StyledTableCell name={beerProducer} align="center">Productor</StyledTableCell>
+      <StyledTableCell name={beerLocation} align="center">Lugar de consumo</StyledTableCell>
       
     </TableRow>
   </TableHead>
@@ -177,7 +190,12 @@ function Profile() {
   </TableBody>
 </Table>
 </TableContainer>
+  </Paper>
+   
+ 
     </Grid>
+
+    
 
     
     
