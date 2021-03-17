@@ -145,7 +145,9 @@ export default function NavBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     > 
-      
+      <MenuItem>
+      <IconProfile to='/profile'></IconProfile>
+      </MenuItem>
       <MenuItem>
         <YellowButton text="Login" to='/logIn'/>
       </MenuItem>

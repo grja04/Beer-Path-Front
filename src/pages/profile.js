@@ -9,19 +9,32 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import userMediaQuery from '@material-ui/core/useMediaQuery'
 import { CardMedia, Container, Grid, Hidden } from '@material-ui/core';
-import Avatar from '@material-ui/core/Avatar'
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import CardActionArea from '@material-ui/core/CardActionArea'
 import {useHistory} from 'react-router-dom'
 import {getPostById} from '../lib/myApi'
 
 
 
-
+const rows = [{
+  beerName: 'corona1',
+  beerCost: 50,
+  beerProducer: 'cuauthemoc',
+  beerLocation: 'la roma'
+},
+{
+  beerName: 'corona4',
+  beerCost: 80,
+  beerProducer: 'cuauthemoc',
+  beerLocation: 'la condesa'
+},
+{
+  beerName: 'victoria1',
+  beerCost: 40,
+  beerProducer: 'cuauthemoc',
+  beerLocation: 'del valle'
+}
+] 
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -41,31 +54,17 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-const rows = [
-  createData('Modelo', "$40", "Cuauthemoc", "Condesa"),
- 
-];
+
 
 
 const useStyles = makeStyles({
-  root: {
-    minWidth: 300,
-    backgroundColor: '#403b3b',
-    margin:'2% 5%',
-      padding: '2%',
-      
-      height: '20vh',
-      
-  },
+  
   addButton: {
     backgroundColor: '#F7A205',
     fontFamily:"Bebas Neue",
-    width: 'auto',
-    height: 'auto',
-    display: 'flex run-in',
+   
+    
+    
     
     
     
@@ -73,18 +72,23 @@ const useStyles = makeStyles({
   userName: {
     fontFamily: 'Montserrat',
     color: 'white',
+   
   
   },
   containerBase: {
     
     
     backgroundColor: '#403b3b',
-    minWidth: 100
+    minWidth: 100,
+    margin: '25px'
+    
     },
 
   profileImage: {
-    height: 'auto',
-    src:'./public/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png',
+    
+    src:'/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png',
+    width:'40%', 
+
  },
   table: {
     minWidth: 300,
@@ -99,7 +103,16 @@ paper1: {
 },
 
 buttonContainer: {
-  paddingTop: '50px'
+ 
+  
+},
+root: {
+ 
+
+},
+
+tableContainer:{
+  
 }
 
 });
@@ -143,27 +156,39 @@ function Profile() {
 
   return (
     
-    <Grid className={classes.root} >
-      <Grid container
-  direction="row"
-  justify="center"
-  >
-    <Grid item xs={4} component="img" image='public/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png'>
-    
-    
-    </Grid>
-     <Grid item xs={4}  >
-    <Typography className={classes.userName} variant="h5">Koder10</Typography>
+    <Grid container direction='row'  >
+
+      
+   <Grid container 
+   direction='row'
+   justify='center'
+   
+   className={classes.containerBase}
+   item xs={12} sm={12} md={12} lg={12}
+   >
+
+     <Grid item xs={4} sm={4} >
+       <Grid  className={classes.profileImage} align='left' component='img' src='/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png'></Grid>
      </Grid>
 
-     <Grid item xs={4} align='right' className={classes.buttonContainer}>
-     <Button variant="contained" size="large" className={classes.addButton}>Añade una Cerveza</Button>
+
+     <Grid item xs={4} sm={4} className={classes.userName}>
+       <Typography variant='h4'className={classes.userName}>Koder10</Typography>
      </Grid>
-  </Grid>
 
 
-  
-  <Paper item xs={12} >
+     <Grid item xs={4} sm={4} justify='center' align='center' className={classes.buttonContainer}>
+       <Button variant="contained" size='large' className={classes.addButton}>Check-in</Button>
+     </Grid>
+
+
+
+   </Grid>
+
+
+
+   <Grid  item xs={12} sm={12} md={12} lg={12}>
+      <Paper  >
     <TableContainer component={Paper}>
 <Table className={classes.table} aria-label="customized table">
   <TableHead>
@@ -178,9 +203,7 @@ function Profile() {
   <TableBody>
     {rows.map((row) => (
       <StyledTableRow key={row.beerName}>
-        <StyledTableCell component="th" scope="row">
-          {row.beerName}
-        </StyledTableCell>
+    
         <StyledTableCell  align="center">{row.beerName}</StyledTableCell>
         <StyledTableCell  align="center">{row.beerCost}</StyledTableCell>
         <StyledTableCell align="center">{row.beerProducer}</StyledTableCell>
@@ -192,6 +215,9 @@ function Profile() {
 </Table>
 </TableContainer>
   </Paper>
+   </Grid>
+  
+ 
    
  
     </Grid>

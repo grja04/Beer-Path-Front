@@ -11,9 +11,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   profileIcon:{
-    width:'90px',
+    width:'44px',
     height:'40px',
-    color: 'white'
+    color: '#FFBF00'
 },
 }))
 
