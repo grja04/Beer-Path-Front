@@ -66,8 +66,14 @@ const LogIn = () => {
                 <Grid className="fontBeba" container justify="center" width={200}>
                 <h2>LOGIN</h2>
                 </Grid>
+<<<<<<< HEAD
+                <TextField className={classes.root} label="Nombre de Usuario" margin="normal" required/>
+                <TextField className={classes.root} label="Correo" margin="normal" required/>
+                <TextField className={classes.root} type="password" label="Contraseña" margin="normal" required/>
+=======
                 <TextField className={classes.root} label="Nombre de Usuario" name='userName' onChange={getLogInData} margin="normal" required/>
                 <TextField className={classes.root} type="password" label="Contraseña" name='password' onChange={getLogInData} margin="normal" required/>
+>>>>>>> 6c7c72e066fd9ef436c60ab67bb7ba76606c14bb
                 <div style={{height:20}}/>
                 <Button class="fontBeba" style={{backgroundColor:"#292929", color:"#F7A205"}} onClick={saveLogInData} variant="contained">
                 HECHO!
