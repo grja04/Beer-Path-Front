@@ -9,18 +9,32 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import userMediaQuery from '@material-ui/core/useMediaQuery'
 import { CardMedia, Container, Grid, Hidden } from '@material-ui/core';
-import Avatar from '@material-ui/core/Avatar'
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import CardActionArea from '@material-ui/core/CardActionArea'
 import {useHistory} from 'react-router-dom'
-import {Link} from "react-router-dom";
+import {getPostById} from '../lib/myApi'
 
 
 
+const rows = [{
+  beerName: 'corona1',
+  beerCost: 50,
+  beerProducer: 'cuauthemoc',
+  beerLocation: 'la roma'
+},
+{
+  beerName: 'corona4',
+  beerCost: 80,
+  beerProducer: 'cuauthemoc',
+  beerLocation: 'la condesa'
+},
+{
+  beerName: 'victoria1',
+  beerCost: 40,
+  beerProducer: 'cuauthemoc',
+  beerLocation: 'del valle'
+}
+] 
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -40,31 +54,17 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-const rows = [
-  createData('Modelo', "$40", "Cuauthemoc", "Condesa"),
- 
-];
+
 
 
 const useStyles = makeStyles({
-  root: {
-    minWidth: 300,
-    backgroundColor: '#403b3b',
-    margin:'2% 5%',
-      padding: '2%',
-      
-      height: '20vh',
-      
-  },
+  
   addButton: {
     backgroundColor: '#F7A205',
     fontFamily:"Bebas Neue",
-    width: 'auto',
-    height: 'auto',
-    display: 'flex run-in',
+   
+    
+    
     
     
     
@@ -72,18 +72,23 @@ const useStyles = makeStyles({
   userName: {
     fontFamily: 'Montserrat',
     color: 'white',
+   
   
   },
   containerBase: {
     
     
     backgroundColor: '#403b3b',
-    minWidth: 100
+    minWidth: 100,
+    margin: '25px'
+    
     },
 
   profileImage: {
-    height: 'auto',
-    src:'src/images/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png',
+    
+    src:'/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png',
+    width:'40%', 
+
  },
   table: {
     minWidth: 300,
@@ -98,7 +103,16 @@ paper1: {
 },
 
 buttonContainer: {
-  paddingTop: '50px'
+ 
+  
+},
+root: {
+ 
+
+},
+
+tableContainer:{
+  
 }
 
 });
@@ -109,10 +123,10 @@ buttonContainer: {
 
 
 
-
 function Profile() {
+ 
   const classes = useStyles();
-  // const history = useHistory()
+  const history = useHistory()
   // const [token, setToken] = useState(null)
 
   // useEffect(()=>{
@@ -123,63 +137,92 @@ function Profile() {
   // if(!token){
   //   return null
   // }
+  // const postDataByID = ()=>{
+  //   fetch('https://beerpath.herokuapp.com/beer/', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(getPostById),
+  //   })
+  //   .then(res => res.json())
+  //   .then(getPostById =>{
+  //     console.log('Success:', getPostById)
+  //   })
+
+  // }
+
+   
 
   return (
     
-    <Grid className={classes.root} >
-      <Grid container
-  direction="row"
-  justify="center"
-  
-  className={classes.containerBase}>
-    <Grid item xs={4} component="img" image='src/images/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png' className={classes.profileImage}>
+    <Grid container direction='row'  >
+
+      
+   <Grid container 
+   direction='row'
+   justify='center'
    
-    
-    </Grid>
-     <Grid item xs={4}  >
-    <Typography className={classes.userName} variant="h5">Koder10</Typography>
+   className={classes.containerBase}
+   item xs={12} sm={12} md={12} lg={12}
+   >
+
+     <Grid item xs={4} sm={4} >
+       <Grid  className={classes.profileImage} align='left' component='img' src='/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png'></Grid>
      </Grid>
 
-     <Grid item xs={4} align='right' className={classes.buttonContainer}>
-      <Link to='post'>
-     <Button variant="contained" size="large" className={classes.addButton} text='Post' to='/post/'> Añade una Cerveza</Button>
-     </Link>
-     </Grid>
-  </Grid>
-  <Paper item xs={12} >
-    
-  </Paper>
 
-  <Grid>
-    
-  </Grid>
- <TableContainer component={Paper}>
+     <Grid item xs={4} sm={4} className={classes.userName}>
+       <Typography variant='h4'className={classes.userName}>Koder10</Typography>
+     </Grid>
+
+
+     <Grid item xs={4} sm={4} justify='center' align='center' className={classes.buttonContainer}>
+       <Button variant="contained" size='large' className={classes.addButton}>Check-in</Button>
+     </Grid>
+
+
+
+   </Grid>
+
+
+
+   <Grid  item xs={12} sm={12} md={12} lg={12}>
+      <Paper  >
+    <TableContainer component={Paper}>
 <Table className={classes.table} aria-label="customized table">
   <TableHead>
     <TableRow>
-      <StyledTableCell>Cerveza</StyledTableCell>
-      <StyledTableCell align="center">Precio</StyledTableCell>
-      <StyledTableCell align="center">Productor</StyledTableCell>
-      <StyledTableCell align="center">Lugar de consumo</StyledTableCell>
+      <StyledTableCell >Cerveza</StyledTableCell>
+      <StyledTableCell  align="center">Precio</StyledTableCell>
+      <StyledTableCell  align="center">Productor</StyledTableCell>
+      <StyledTableCell  align="center">Lugar de consumo</StyledTableCell>
       
     </TableRow>
   </TableHead>
   <TableBody>
     {rows.map((row) => (
-      <StyledTableRow key={row.name}>
-        <StyledTableCell component="th" scope="row">
-          {row.name}
-        </StyledTableCell>
-        <StyledTableCell align="center">{row.calories}</StyledTableCell>
-        <StyledTableCell align="center">{row.fat}</StyledTableCell>
-        <StyledTableCell align="center">{row.carbs}</StyledTableCell>
+      <StyledTableRow key={row.beerName}>
+    
+        <StyledTableCell  align="center">{row.beerName}</StyledTableCell>
+        <StyledTableCell  align="center">{row.beerCost}</StyledTableCell>
+        <StyledTableCell align="center">{row.beerProducer}</StyledTableCell>
+        <StyledTableCell align="center">{row.beerLocation}</StyledTableCell>
        
       </StyledTableRow>
     ))}
   </TableBody>
 </Table>
 </TableContainer>
+  </Paper>
+   </Grid>
+  
+ 
+   
+ 
     </Grid>
+
+    
 
     
     
