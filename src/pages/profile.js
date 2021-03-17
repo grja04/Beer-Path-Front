@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {useHistory} from 'react-router-dom'
 import {getPostById} from '../lib/myApi'
+import { Link } from "react-router-dom";
 
 
 
@@ -178,7 +179,9 @@ function Profile() {
 
 
      <Grid item xs={4} sm={4} justify='center' align='center' className={classes.buttonContainer}>
+      <Link to='/post'>
        <Button variant="contained" size='large' className={classes.addButton}>Check-in</Button>
+      </Link>    
      </Grid>
 
 
