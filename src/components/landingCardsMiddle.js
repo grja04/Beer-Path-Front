@@ -26,9 +26,10 @@ export default function SimpleCard() {
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           <h1>¿Qué es BeerPath?</h1>
+         
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-         <li><h2>adjective</h2></li> 
+         <li><h2>BeerPath es una nueva manera de buscar cervezas artesanales cerca de ti!</h2></li> 
         </Typography>
         <Typography variant="body2" component="p">
 

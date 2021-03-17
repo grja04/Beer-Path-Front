@@ -30,7 +30,7 @@ export default function SimpleCard() {
           <h1>¿Cómo funcionamos?</h1>
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          adjective
+          <h3>Nuestra aplicacion funciona con la ayuda de nuestra comunidad; al hacer check-in cada vez que encuentres la cerveza de su preferencia. El primer paso es postear por nombre, precio, productor y con ayuda del mapa, guardar la ubicación. Ahora todos los que busquen la misma cerveza podrán verla en el mapa! </h3>
         </Typography>
         <Typography variant="body2" component="p">
 
