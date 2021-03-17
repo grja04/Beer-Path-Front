@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react' 
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -15,6 +15,13 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import CardActionArea from '@material-ui/core/CardActionArea'
+import {useHistory} from 'react-router-dom'
+import {getPostById} from '../lib/myApi'
+
+
+
+
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -38,54 +45,62 @@ function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
 }
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData('Modelo', "$40", "Cuauthemoc", "Condesa"),
+ 
 ];
 
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 800,
+    minWidth: 300,
     backgroundColor: '#403b3b',
     margin:'2% 5%',
       padding: '2%',
-      justifyContent:'center',
+      
       height: '20vh',
       
   },
   addButton: {
     backgroundColor: '#F7A205',
     fontFamily:"Bebas Neue",
-    width: '200px',
-    height: '50px'
+    width: 'auto',
+    height: 'auto',
+    display: 'flex run-in',
+    
+    
     
   },
   userName: {
     fontFamily: 'Montserrat',
-    color: 'white'
+    color: 'white',
+  
   },
   containerBase: {
     
     
     backgroundColor: '#403b3b',
-    
-      padding: '5% 5%',
-      marginInline: '5% 2% 5%',
-      height: '20vh',
-      margin: '40px 40px 50px 1px',
-      
-
-  },
+    minWidth: 100
+    },
 
   profileImage: {
-    src:"src/images/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png"
-  },
+    height: 'auto',
+    src:'./public/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png',
+ },
   table: {
-    minWidth: 700,
+    minWidth: 300,
   },
+
+paper1: {
+  
+  width: '70%',
+  margin: "179px",
+  minWidth: 300,
+  
+},
+
+buttonContainer: {
+  paddingTop: '50px'
+}
 
 });
 
@@ -96,51 +111,113 @@ const useStyles = makeStyles({
 
 
 function Profile() {
+ 
   const classes = useStyles();
-  
+  const history = useHistory()
+  // const [token, setToken] = useState(null)
+
+  // useEffect(()=>{
+  // const myToken = localStorage.getItem('token')
+  // setToken(myToken)
+  // }, [])
+
+  // if(!token){
+  //   return null
+  // }
+  // const postDataByID = ()=>{
+  //   fetch('https://beerpath.herokuapp.com/beer/', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(getPostById),
+  //   })
+  //   .then(res => res.json())
+  //   .then(getPostById =>{
+  //     console.log('Success:', getPostById)
+  //   })
+
+  // }
+
+   
+
   return (
-    <Grid>
-       <Card className={classes.root} variant="outlined" >
-    <CardContent >
-      <CardMedia xs={4} component="img" image="/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png" >
     
-      </CardMedia>
-      <Typography className={classes.userName} xs={4} variant="h5" component="h2">Koder10</Typography>
-      <Button className={classes.addButton} variant="contained" size='large'>Añade una Cerveza</Button>
-    </CardContent>
+    <Grid className={classes.root} >
+      <Grid container
+  direction="row"
+  justify="center"
+  >
+    <Grid item xs={4} component="img" image='public/d5002966723d78953059efe47396ef04-ilustraci-oacute-n-de-mano-de-vaso-de-cerveza-by-vexels.png'>
     
-  </Card>  
-  <Paper>
+    
+    </Grid>
+     <Grid item xs={4}  >
+    <Typography className={classes.userName} variant="h5">Koder10</Typography>
+     </Grid>
+
+     <Grid item xs={4} align='right' className={classes.buttonContainer}>
+     <Button variant="contained" size="large" className={classes.addButton}>Añade una Cerveza</Button>
+     </Grid>
+  </Grid>
+
+
+  
+  <Paper item xs={12} >
     <TableContainer component={Paper}>
 <Table className={classes.table} aria-label="customized table">
   <TableHead>
     <TableRow>
-      <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-      <StyledTableCell align="right">Calories</StyledTableCell>
-      <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-      <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-      <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+      <StyledTableCell >Cerveza</StyledTableCell>
+      <StyledTableCell  align="center">Precio</StyledTableCell>
+      <StyledTableCell  align="center">Productor</StyledTableCell>
+      <StyledTableCell  align="center">Lugar de consumo</StyledTableCell>
+      
     </TableRow>
   </TableHead>
   <TableBody>
     {rows.map((row) => (
-      <StyledTableRow key={row.name}>
+      <StyledTableRow key={row.beerName}>
         <StyledTableCell component="th" scope="row">
-          {row.name}
+          {row.beerName}
         </StyledTableCell>
-        <StyledTableCell align="right">{row.calories}</StyledTableCell>
-        <StyledTableCell align="right">{row.fat}</StyledTableCell>
-        <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-        <StyledTableCell align="right">{row.protein}</StyledTableCell>
+        <StyledTableCell  align="center">{row.beerName}</StyledTableCell>
+        <StyledTableCell  align="center">{row.beerCost}</StyledTableCell>
+        <StyledTableCell align="center">{row.beerProducer}</StyledTableCell>
+        <StyledTableCell align="center">{row.beerLocation}</StyledTableCell>
+       
       </StyledTableRow>
     ))}
   </TableBody>
 </Table>
 </TableContainer>
   </Paper>
-
-
+   
+ 
     </Grid>
+
+    
+
+    
+    
+    
+  
+  
+    
+
+   
+     
+    
+
+
+ 
+
+     
+    
+  
+
+
+    
 
    
 

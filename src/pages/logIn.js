@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Grid, TextField, Button } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-
+import {useHistory} from 'react-router-dom'
 
 
 
@@ -20,6 +20,7 @@ const useStyles = makeStyles({
 
 
 const LogIn = () => {
+    const history = useHistory()
     const classes = useStyles();
     const [logInData, setlogInData] = useState({});
   
@@ -38,7 +39,13 @@ const LogIn = () => {
             })
             .then(response => response.json())
             .then(logInData => {
-            console.log('Success:', logInData);
+            console.log('Success:', logInData)
+            if (logInData.success){
+            localStorage.setItem('token', logInData.data.token)
+            history.push('/profile')
+            }else{
+                alert('datos incorrectos')
+            }
             })
             .catch((error) => {
             console.error('Error:', error);
@@ -56,14 +63,19 @@ const LogIn = () => {
                 <Grid container item xs={12} sm={6} alignItems="center" direction="column" justify="space-between" style={{padding:10,  backgroundColor: '#F5F5F5'}}>
                 <div/>
                 <div style={{display:"flex", flexDirection:"column", maxWidth:400, minWidth:300}}>
-                <Grid class="fontBeba" container justify="center" width={200}>
+                <Grid className="fontBeba" container justify="center" width={200}>
                 <h2>LOGIN</h2>
                 </Grid>
+<<<<<<< HEAD
                 <TextField className={classes.root} label="Nombre de Usuario" margin="normal" required/>
                 <TextField className={classes.root} label="Correo" margin="normal" required/>
                 <TextField className={classes.root} type="password" label="Contraseña" margin="normal" required/>
+=======
+                <TextField className={classes.root} label="Nombre de Usuario" name='userName' onChange={getLogInData} margin="normal" required/>
+                <TextField className={classes.root} type="password" label="Contraseña" name='password' onChange={getLogInData} margin="normal" required/>
+>>>>>>> 6c7c72e066fd9ef436c60ab67bb7ba76606c14bb
                 <div style={{height:20}}/>
-                <Button class="fontBeba" style={{backgroundColor:"#292929", color:"#F7A205"}} variant="contained">
+                <Button class="fontBeba" style={{backgroundColor:"#292929", color:"#F7A205"}} onClick={saveLogInData} variant="contained">
                 HECHO!
                 </Button>
                 <Button class="fontBeba" style={{border:"none", backgroundColor:"#f5f5f5"}}> Aun no tienes cuenta?</Button>
