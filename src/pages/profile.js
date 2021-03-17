@@ -17,7 +17,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CardActionArea from '@material-ui/core/CardActionArea'
 import {useHistory} from 'react-router-dom'
-
+import {Link} from "react-router-dom";
 
 
 
@@ -141,7 +141,9 @@ function Profile() {
      </Grid>
 
      <Grid item xs={4} align='right' className={classes.buttonContainer}>
-     <Button variant="contained" size="large" className={classes.addButton}>Añade una Cerveza</Button>
+      <Link to='post'>
+     <Button variant="contained" size="large" className={classes.addButton} text='Post' to='/post/'> Añade una Cerveza</Button>
+     </Link>
      </Grid>
   </Grid>
   <Paper item xs={12} >
